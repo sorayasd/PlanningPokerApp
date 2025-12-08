@@ -61,7 +61,7 @@ function initConfigScreen() {
     errorEl.textContent = "";
     alert("Configuration validée ! 🚀 La suite arrive bientôt.");
 
-    // Plus tard : passer à la page 3 (affichage du backlog)
+    // passer à la page 3 (affichage du backlog)
   });
 }
 
