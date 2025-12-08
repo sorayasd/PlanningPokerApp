@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Planning Poker</title>
+  <!-- Fichier de styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Planning Poker</h1>
+
+    <section id="menu">
+      <h2>Menu d'accueil</h2>
+      <p>Choisissez une option pour continuer :</p>
+
+      <div class="buttons">
+        <button id="new-game-btn">Nouvelle partie</button>
+        <button id="resume-game-btn">Reprendre une partie</button>
+      </div>
+
+      <!-- Petit message qui change quand on clique sur un bouton -->
+      <p id="menu-message" class="message"></p>
+    </section>
+    <!-- SECTION CONFIGURATION DE PARTIE (cachée au début) -->
+<section id="config-screen" class="hidden">
+  <h2>Configuration de la partie</h2>
+
+  <label for="player-count">Nombre de joueurs :</label>
+  <input type="number" id="player-count" min="2" max="10" value="3" />
+
+  <div id="player-names"></div>
+
+  <label for="game-mode">Mode de jeu :</label>
+  <select id="game-mode">
+    <option value="strict">Strict (unanimité)</option>
+    <option value="average">Moyenne</option>
+    <option value="median">Médiane</option>
+    <option value="absolute-majority">Majorité absolue</option>
+    <option value="relative-majority">Majorité relative</option>
+  </select>
+
+  <button id="start-game-btn">Démarrer la partie</button>
+
+  <p id="config-error" class="error"></p>
+</section>
+
+
+
+  </main>
+
+  <!-- Code JavaScript de la page -->
+  <script src="js/main.js"></script>
+</body>
+</html>

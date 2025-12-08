@@ -1,0 +1,15 @@
+# Planning Poker
+
+Projet d'application web de Planning Poker permettant d'estimer la difficulté des fonctionnalités d'un backlog donné.
+
+## État actuel 
+- Mise en place de la structure minimale du projet.
+- Page de **menu d'accueil** avec :
+  - un bouton "Nouvelle partie",
+  - un bouton "Reprendre une partie",
+  - un message d'information qui réagit aux clics.
+
+Les prochaines étapes :
+- Page de configuration des joueurs et du mode de jeu.
+- Chargement d'un backlog au format JSON.
+- Écran de vote Planning Poker et application des règles.
