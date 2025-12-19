@@ -1,15 +1,62 @@
-# Planning Poker
+# Planning Poker Application
 
-Projet d'application web de Planning Poker permettant d'estimer la difficulté des fonctionnalités d'un backlog donné.
+## Présentation du projet
 
-## État actuel 
-- Mise en place de la structure minimale du projet.
-- Page de **menu d'accueil** avec :
-  - un bouton "Nouvelle partie",
-  - un bouton "Reprendre une partie",
-  - un message d'information qui réagit aux clics.
+Cette application est une application de **Planning Poker** permettant à une équipe d’estimer la difficulté d'une ou plusieurs fonctionnalités à partir d’un backlog, en respectant les règles vues en cours.
 
-Les prochaines étapes :
-- Page de configuration des joueurs et du mode de jeu.
-- Chargement d'un backlog au format JSON.
-- Écran de vote Planning Poker et application des règles.
+L’application simule une séance de Planning Poker : les joueurs votent sur des fonctionnalités, discutent en cas de désaccords, et une estimation finale est validé selon le mode de jeu choisi.
+
+---
+
+## Fonctionnalités principales
+
+- Menu d’accueil (nouvelle partie / reprise de partie)
+- Configuration de la partie :
+  - choix du nombre de joueurs
+  - saisie des pseudos
+  - choix du mode de jeu (strict, moyenne)
+- Import d’un backlog de fonctionnalités au format JSON
+- Affichage des fonctionnalités à estimer
+- Vote Planning Poker avec cartes (1, 2, 3, 5, 8, 13, café)
+- Gestion de la carte café pour mettre la partie en pause
+- Sauvegarde de l’état de la partie dans un fichier JSON (`pause.json`)
+- Reprise d’une partie à partir du même fichier JSON
+- Résumé final des estimations
+- Export du backlog final avec les difficultés estimées
+
+---
+
+## Modes de jeu implémentés
+
+- **Mode strict (unanimité)** : les joueurs votent jusqu’à ce que tous soient d’accord.
+- **Mode moyenne** : après un premier tour à l’unanimité, la difficulté est calculée à partir de la moyenne des votes.
+
+---
+
+## Structure du projet## Utilisation
+
+1. Ouvrir le fichier `index.html` dans un navigateur web.
+2. Cliquer sur **Nouvelle partie**.
+3. Configurer les joueurs et le mode de jeu.
+4. Importer un fichier JSON de backlog .
+5. Lancer la partie et procéder aux votes.
+6. Télécharger le JSON final à la fin de la partie.
+
+---
+
+## Reprise de partie
+
+Si tous les joueurs choisissent la carte café , l’application génère un fichier `pause.json` contenant l’état de la partie.
+
+Ce fichier peut être chargé depuis le menu **Reprendre une partie** affin de continuer la session ultérieurement.
+
+---
+
+## Technologies utilisées
+
+- HTML
+- CSS
+- JavaScript (vanilla)
+
+Aucune bibliothèque externe ni backend n’est utilisé. Toute la logique est gérée côté client.
+L’application fonctionne entièrement en local.
