@@ -1,0 +1,18 @@
+{
+  "backlog": [
+    {
+      "id": 1,
+      "title": "Connexion",
+      "description": "Permettre à un utilisateur existant de se connecter.",
+      "status": "pending",
+      "estimatedDifficulty": null
+    },
+    {
+      "id": 2,
+      "title": "Profil utilisateur",
+      "description": "Afficher un profil avec des informations de base.",
+      "status": "pending",
+      "estimatedDifficulty": null
+    }
+  ]
+}

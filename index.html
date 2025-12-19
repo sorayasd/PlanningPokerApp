@@ -2,54 +2,107 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Planning Poker</title>
-  <!-- Fichier de styles -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <main class="container">
+
+<main class="container">
+
+  <!--  Page 1 : menu    -->
+  <section id="menu">
     <h1>Planning Poker</h1>
+    <p>Menu d’accueil</p>
 
-    <section id="menu">
-      <h2>Menu d'accueil</h2>
-      <p>Choisissez une option pour continuer :</p>
+    <div class="buttons">
+      <button id="new-game-btn">Nouvelle partie</button>
 
-      <div class="buttons">
-        <button id="new-game-btn">Nouvelle partie</button>
-        <button id="resume-game-btn">Reprendre une partie</button>
-      </div>
+      <button id="resume-game-btn">Reprendre une partie</button>
+      <!-- input caché pour charger pause.json -->
+      <input type="file" id="resume-file" accept="application/json" class="hidden" />
+    </div>
 
-      <!-- Petit message qui change quand on clique sur un bouton -->
-      <p id="menu-message" class="message"></p>
-    </section>
-    <!-- SECTION CONFIGURATION DE PARTIE -->
-<section id="config-screen" class="hidden">
-  <h2>Configuration de la partie</h2>
+    <p id="menu-message" class="message"></p>
+  </section>
 
-  <label for="player-count">Nombre de joueurs :</label>
-  <input type="number" id="player-count" min="2" max="10" value="3" />
+  <!-- page2: configuration-->
+  <section id="config-screen" class="hidden">
+    <h2>Configuration de la partie</h2>
 
-  <div id="player-names"></div>
+    <label for="player-count">Nombre de joueurs :</label>
+    <input type="number" id="player-count" min="2" max="10" value="3" />
 
-  <label for="game-mode">Mode de jeu :</label>
-  <select id="game-mode">
-    <option value="strict">Strict (unanimité)</option>
-    <option value="average">Moyenne</option>
-    <option value="median">Médiane</option>
-    <option value="absolute-majority">Majorité absolue</option>
-    <option value="relative-majority">Majorité relative</option>
-  </select>
+    <div id="player-names"></div>
 
-  <button id="start-game-btn">Démarrer la partie</button>
+    <label for="game-mode">Mode de jeu :</label>
+    <select id="game-mode">
+      <option value="strict">Strict (unanimité)</option>
+      <option value="average">Moyenne</option>
+    </select>
 
-  <p id="config-error" class="error"></p>
-</section>
+    <label for="backlog-file">Backlog (JSON) :</label>
+    <input type="file" id="backlog-file" accept="application/json" />
+    <p class="hint">Si aucun fichier n’est choisi, un backlog par défaut sera utilisé.</p>
 
+    <button id="start-game-btn">Démarrer la partie</button>
 
+    <p id="config-error" class="error"></p>
+  </section>
 
-  </main>
+  <!-- page3: fonctionnalité -->
+  <section id="feature-screen" class="hidden">
+    <h2>Fonctionnalité à estimer</h2>
 
-  <!-- Code JavaScript de la page -->
-  <script src="js/main.js"></script>
+    <p><strong id="feature-title"></strong></p>
+    <p id="feature-description"></p>
+
+    <span id="feature-status" class="badge"></span>
+
+    <div class="buttons">
+      <button id="go-vote-btn">Passer au vote</button>
+    </div>
+
+    <p id="feature-info" class="message"></p>
+  </section>
+
+  <!-- page4: vote-->
+  <section id="vote-screen" class="hidden">
+    <h2>Vote Planning Poker</h2>
+
+    <p><strong>Joueur :</strong> <span id="vote-player-name"></span></p>
+    <p><strong>Fonctionnalité :</strong> <span id="vote-feature-title"></span></p>
+    <p><strong>Tour :</strong> <span id="vote-round"></span></p>
+
+    <div id="cards-container" class="cards"></div>
+
+    <p id="vote-selected" class="message"></p>
+
+    <div class="buttons">
+      <button id="confirm-vote-btn">Valider le vote</button>
+      <button id="reveal-btn" class="hidden">Révéler</button>
+      <button id="validate-round-btn" class="hidden">Valider ce tour</button>
+      <button id="revote-btn" class="hidden">Nouveau tour</button>
+    </div>
+
+    <div id="votes-reveal" class="hidden"></div>
+
+    <p id="vote-error" class="error"></p>
+  </section>
+
+  <!-- page5: fin-->
+  <section id="end-screen" class="hidden">
+    <h2>Fin de partie</h2>
+    <div id="end-summary"></div>
+
+    <div class="buttons">
+      <button id="download-final-btn">Télécharger le JSON final</button>
+      <button id="back-to-menu-btn">Retour à l’accueil</button>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/main.js"></script>
 </body>
 </html>
